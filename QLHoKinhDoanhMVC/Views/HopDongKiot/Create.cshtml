@@ -1,0 +1,61 @@
+﻿@model QLHoKinhDoanhMVC.Models.HopDongKiot
+
+@{
+    ViewBag.Title = "Tạo mới hợp đồng";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h1 class="page-header">@ViewBag.Title</h1>
+@if (TempData["AlertMessage"] != null)
+{
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+        @Html.Raw(TempData["AlertMessage"])
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-lg-6">
+
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <div class="form-group">
+                <label class="control-label col-xs-2">Họ tên chủ hộ</label>
+                <div class="col-xs-10">
+                    @Html.DropDownList("MaKinhDoanh", null, String.Empty, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaKinhDoanh)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-xs-2">Mã kiot</label>
+                <div class="col-xs-10">
+                    @Html.DropDownList("MaKiot", null, String.Empty, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaKiot)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-xs-2">Giá thuê</label>
+                <div class="col-xs-10">
+                    <div class="form-group input-group">
+                        @Html.TextBoxFor(model => model.GiaThue, new { @class = "form-control", type = "number", required = "required" })
+                        <span class="input-group-addon">Đ</span>
+                        @Html.ValidationMessageFor(model => model.GiaThue)
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <input type="submit" value="Tạo" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

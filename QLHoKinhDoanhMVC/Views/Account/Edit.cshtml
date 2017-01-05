@@ -1,0 +1,91 @@
+﻿@model QLHoKinhDoanhMVC.Models.AccountChuHoNhanVien
+
+@{
+    ViewBag.Title = "Sửa tài khoản " + @Model.UserID;
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h1 class="page-header">@ViewBag.Title</h1>
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+        @Html.Raw(TempData["AlertMessage"])
+    </div>
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.UserID)
+
+    <div class="col-lg-6">
+        
+        <div class="form-group">
+            <label class="control-label col-xs-2">Họ Tên</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.HoTen, new { @class = "form-control", type = "text", placeholder = "Nguyễn Văn A", required = "requied" })
+                @Html.ValidationMessageFor(model => model.HoTen, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Ngày sinh</label>
+            <div class="col-xs-10">
+                <input value="@Model.NgaySinh.ToString("yyyy-MM-dd")" , class="form-control" , type="date" , name="NgaySinh" />
+                @Html.ValidationMessageFor(model => model.NgaySinh, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Địa chỉ</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.DiaChi, new { @class = "form-control", type = "text", placeholder = "Số nhà, đường phố, phường, thành phố, tỉnh", required = "requied" })
+                @Html.ValidationMessageFor(model => model.DiaChi, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Email</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", type = "Email", placeholder = "abc@gmail.com", required = "requied" })
+                @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        @{
+        Model.SoDienThoai = Model.SoDienThoai.Replace(" ", "");
+        }
+        <div class="form-group">
+            <label class="control-label col-xs-2">Số điện thoại</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.SoDienThoai, new { @class = "form-control", type = "text", placeholder = "01234567890", required = "requied", maxlength = "15" })
+                @Html.ValidationMessageFor(model => model.SoDienThoai, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Giới tính</label>
+            <label class="radio-inline">
+                @Html.RadioButtonFor(model => model.GioiTinh, "Nam", new { @checked = "checked" })
+                Nam
+            </label>
+            <label class="radio-inline">
+                @Html.RadioButtonFor(model => model.GioiTinh, "Nữ")
+                Nữ
+            </label>
+            <label class="radio-inline">
+                @Html.RadioButtonFor(model => model.GioiTinh, "Khác")
+                Khác
+            </label>
+        </div>
+
+        <div class="col-xs-offset-2 form-group">
+            <input type="submit" class="btn btn-primary" value="Lưu" />
+        </div>
+        <div class="col-xs-offset-2 form-group">
+            @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-default", type = "button" })
+        </div>
+    </div>
+
+}
+
+

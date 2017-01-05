@@ -1,0 +1,44 @@
+﻿@model QLHoKinhDoanhMVC.Models.Kiot
+
+@{
+    ViewBag.Title = "Sửa kiot " + Model.MaKiot;
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h1 class="page-header">@ViewBag.Title</h1>
+@if (TempData["AlertMessage"] != null)
+{
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+        @Html.Raw(TempData["AlertMessage"])
+    </div>
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+
+        @Html.HiddenFor(model => model.MaKiot)
+        @Html.HiddenFor(model => model.Tang)
+        @Html.HiddenFor(mode => mode.SoTT)
+        @Html.HiddenFor(mode => mode.TrangThai)
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label class="control-label">Diện tích</label>
+            @Html.TextBoxFor(model => model.DienTich, new { Class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(model => model.DienTich, null, new { Class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <input type="submit" class="btn btn-primary" value="Lưu" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-default", type = "button" })
+            </div>
+        </div>
+</div>
+}
+

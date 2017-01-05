@@ -1,0 +1,58 @@
+﻿@model QLHoKinhDoanhMVC.Models.Kiot
+
+@{
+    ViewBag.Title = "Thêm kiot mới";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h1 class="page-header">@ViewBag.Title</h1>
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+        @Html.Raw(TempData["AlertMessage"])
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label class="control-label col-xs-2">Diện tích</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.DienTich, new { Class = "form-control", type = "number", required = "required" })
+                @Html.ValidationMessageFor(model => model.DienTich, null, new { Class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Tầng</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.Tang, new { Class = "form-control", type = "number", required = "required" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Số thứ tự</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.SoTT, new { Class = "form-control", type = "number", required = "required" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <input type="submit" class="btn btn-primary" value="Thêm" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-default", type = "button" })
+            </div>
+        </div>
+
+    </div>
+}
+

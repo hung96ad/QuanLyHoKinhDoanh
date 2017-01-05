@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Style/vendor/bootstrap/css/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Style/vendor/metisMenu/metisMenu.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Style/dist/css/sb-admin-2.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Style/vendor/font-awesome/css/font-awesome.min.css")" rel="stylesheet" type="text/css">
+    <script src="~/Style/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Trang chủ</a>
+            </div>
+            @Html.Partial("~/Views/Shared/_Header.cshtml")
+
+            @Html.Action("ManagePartial", "Manage")
+        </nav>
+        <div id="page-wrapper">
+            <div class="row">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+        @Html.Partial("~/Views/Shared/_Footer.cshtml")
+</body>
+</html>

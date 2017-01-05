@@ -1,0 +1,15 @@
+﻿@{
+    var sesion = (QLHoKinhDoanhMVC.UserLogin)Session[QLHoKinhDoanhMVC.Common.CommonConstants.USER_SESSION];
+}
+@if (sesion.MaQuyen == 1)
+{
+    @Html.Partial("~/Views/Manage/Admin.cshtml")
+}
+else if (sesion.MaQuyen == 2)
+{
+    @Html.Partial("~/Views/Manage/KeToan.cshtml")
+}
+else
+{
+    @Html.Partial("~/Views/Manage/ChuHo.cshtml")
+}

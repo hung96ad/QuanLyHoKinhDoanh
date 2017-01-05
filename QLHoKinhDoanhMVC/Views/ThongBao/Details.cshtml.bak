@@ -1,0 +1,50 @@
+﻿@model QLHoKinhDoanhMVC.Models.ThongBao
+@{
+    var sesion = (QLHoKinhDoanhMVC.UserLogin)Session[QLHoKinhDoanhMVC.Common.CommonConstants.USER_SESSION];
+}
+@{
+    ViewBag.Title = @Model.TieuDe;
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<div class="col-lg-12">
+    <h1 class="page-header">@Model.TieuDe</h1>
+
+    <blockquote>
+        <small>Ngày đăng: @Model.NgayDang</small>
+    </blockquote>
+</div>
+
+
+
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @Model.MoTa
+        </div>
+        <div class="panel-body">
+            <p>
+                @Html.Raw(Model.NoiDung)
+            </p>
+        </div>
+        <div class="panel-footer">
+            Người đăng: @Model.UserID
+        </div>
+    </div>
+</div>
+
+@if (sesion.MaQuyen == 1 || sesion.UserID == Model.UserID)
+{
+    <div class="form-group">
+        <div class="col-xs-offset-0 col-xs-10">
+            @Html.ActionLink("Sửa", "Edit", new { id = @Model.MaThongBao }, new { @class = "btn btn-primary", type = "button" })
+        </div>
+    </div>
+}
+
+
+<div class="form-group">
+    <div class="col-xs-offset-0 col-xs-10">
+        @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-default", type = "button" })
+    </div>
+</div>

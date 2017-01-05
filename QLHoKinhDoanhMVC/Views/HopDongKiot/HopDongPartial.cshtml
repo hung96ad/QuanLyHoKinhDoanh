@@ -1,0 +1,974 @@
+﻿@model QLHoKinhDoanhMVC.Models.HopDongKiot
+
+<style type="text/css">
+
+body {
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+#page_1 {
+    position: relative;
+    overflow: hidden;
+    margin: 46px 0px 62px 86px;
+    padding: 0px;
+    border: none;
+    width: 730px;
+}
+
+
+
+
+
+.ft0 {
+    font: bold 17px 'Times New Roman';
+    text-decoration: underline;
+    line-height: 25px;
+}
+
+.ft1 {
+    font: bold 17px 'Times New Roman';
+    line-height: 25px;
+}
+
+.ft2 {
+    font: bold 27px 'Times New Roman';
+    line-height: 31px;
+}
+
+.ft3 {
+    font: bold 19px 'Times New Roman';
+    line-height: 22px;
+}
+
+.ft4 {
+    font: 17px 'Times New Roman';
+    line-height: 19px;
+}
+
+.ft5 {
+    font: 17px 'Symbol';
+    line-height: 21px;
+}
+
+.ft6 {
+    font: italic 17px 'Times New Roman';
+    margin-left: 9px;
+    line-height: 19px;
+}
+
+.ft7 {
+    font: italic 17px 'Times New Roman';
+    line-height: 19px;
+}
+
+.ft8 {
+    font: italic 17px 'Times New Roman';
+    margin-left: 8px;
+    line-height: 19px;
+}
+
+.ft9 {
+    font: bold 17px 'Times New Roman';
+    line-height: 19px;
+}
+
+.ft10 {
+    font: 1px 'Times New Roman';
+    line-height: 1px;
+}
+
+.ft11 {
+    font: 16px 'Times New Roman';
+    text-decoration: underline;
+    line-height: 19px;
+}
+
+.ft12 {
+    font: 16px 'Times New Roman';
+    line-height: 19px;
+}
+
+.ft13 {
+    font: 17px 'Times New Roman';
+    text-decoration: underline;
+    line-height: 19px;
+}
+
+.ft14 {
+    font: 11px 'Times New Roman';
+    line-height: 14px;
+    position: relative;
+    bottom: 6px;
+}
+
+.ft15 {
+    font: 17px 'Times New Roman';
+    margin-left: 5px;
+    line-height: 19px;
+}
+
+.ft16 {
+    font: 17px 'Times New Roman';
+    margin-left: 4px;
+    line-height: 19px;
+}
+
+.ft17 {
+    font: bold 17px 'Times New Roman';
+    text-decoration: underline;
+    line-height: 19px;
+}
+
+.ft18 {
+    font: 17px 'Times New Roman';
+    line-height: 25px;
+}
+
+.ft19 {
+    font: italic bold 17px 'Times New Roman';
+    line-height: 20px;
+}
+
+.ft20 {
+    font: bold 17px 'Times New Roman';
+    margin-left: 4px;
+    line-height: 19px;
+}
+
+.ft21 {
+    font: bold 17px 'Times New Roman';
+    color: #ff0000;
+    line-height: 19px;
+}
+
+.ft22 {
+    font: 17px 'Times New Roman';
+    color: #ff0000;
+    line-height: 19px;
+}
+
+.ft23 {
+    font: bold 16px 'Times New Roman';
+    line-height: 25px;
+}
+
+.ft24 {
+    font: bold 16px 'Times New Roman';
+    line-height: 19px;
+}
+
+.ft25 {
+    font: 17px 'Times New Roman';
+    line-height: 20px;
+}
+
+.ft26 {
+    font: 17px 'Times New Roman';
+    margin-left: 7px;
+    line-height: 19px;
+}
+
+.ft27 {
+    font: 17px 'Times New Roman';
+    margin-left: 10px;
+    line-height: 19px;
+}
+
+.ft28 {
+    font: 17px 'Times New Roman';
+    margin-left: 6px;
+    line-height: 19px;
+}
+
+.p0 {
+    text-align: left;
+    padding-left: 226px;
+    padding-right: 216px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-indent: -70px;
+}
+
+.p1 {
+    text-align: left;
+    padding-left: 264px;
+    margin-top: 39px;
+    margin-bottom: 0px;
+}
+
+.p2 {
+    text-align: left;
+    padding-left: 125px;
+    margin-top: 7px;
+    margin-bottom: 0px;
+}
+
+.p3 {
+    text-align: left;
+    padding-left: 212px;
+    margin-top: 7px;
+    margin-bottom: 0px;
+}
+
+.p4 {
+    text-align: left;
+    padding-left: 226px;
+    margin-top: 7px;
+    margin-bottom: 0px;
+}
+
+.p5 {
+    text-align: justify;
+    margin-top: 36px;
+    margin-bottom: 0px;
+}
+
+.p6 {
+    text-align: justify;
+    padding-left: 12px;
+    padding-right: 61px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    text-indent: -12px;
+}
+
+.p7 {
+    text-align: justify;
+    padding-right: 61px;
+    margin-top: 9px;
+    margin-bottom: 0px;
+}
+
+.p8 {
+    text-align: justify;
+    margin-top: 9px;
+    margin-bottom: 0px;
+}
+
+.p9 {
+    text-align: left;
+    padding-right: 61px;
+    margin-top: 9px;
+    margin-bottom: 0px;
+}
+
+.p10 {
+    text-align: left;
+    margin-top: 11px;
+    margin-bottom: 0px;
+}
+
+.p11 {
+    text-align: left;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+
+.p12 {
+    text-align: left;
+    padding-left: 13px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+
+.p13 {
+    text-align: left;
+    margin-top: 7px;
+    margin-bottom: 0px;
+}
+
+.p14 {
+    text-align: left;
+    padding-left: 2px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+
+.p15 {
+    text-align: right;
+    padding-right: 90px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+
+.p16 {
+    text-align: right;
+    padding-right: 91px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+
+.p17 {
+    text-align: right;
+    padding-right: 89px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+
+.p18 {
+    text-align: right;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+
+.p19 {
+    text-align: right;
+    padding-right: 21px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+
+.p20 {
+    text-align: left;
+    padding-right: 100px;
+    margin-top: 7px;
+    margin-bottom: 0px;
+}
+
+.p21 {
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.p22 {
+    text-align: left;
+    padding-left: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+
+.p23 {
+    text-align: left;
+    padding-left: 9px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+
+.p24 {
+    text-align: justify;
+    margin-top: 6px;
+    margin-bottom: 0px;
+}
+
+.p25 {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.p26 {
+    text-align: left;
+    padding-right: 92px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+.p27 {
+    text-align: left;
+    padding-right: 61px;
+    margin-top: 6px;
+    margin-bottom: 0px;
+}
+
+.p28 {
+    text-align: left;
+    padding-right: 61px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.p29 {
+    text-align: justify;
+    padding-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.p30 {
+    text-align: justify;
+    padding-right: 61px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+.p31 {
+    text-align: left;
+    margin-top: 9px;
+    margin-bottom: 0px;
+}
+
+.p32 {
+    text-align: left;
+    padding-right: 60px;
+    margin-top: 9px;
+    margin-bottom: 0px;
+}
+
+.p33 {
+    text-align: left;
+    padding-right: 61px;
+    margin-top: 7px;
+    margin-bottom: 0px;
+}
+
+.p34 {
+    text-align: left;
+    padding-left: 331px;
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
+
+.p35 {
+    text-align: justify;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.p36 {
+    text-align: justify;
+    padding-right: 60px;
+    margin-top: 9px;
+    margin-bottom: 0px;
+}
+
+.p37 {
+    text-align: justify;
+    padding-right: 60px;
+    margin-top: 11px;
+    margin-bottom: 0px;
+}
+
+.p38 {
+    text-align: justify;
+    padding-right: 61px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.p39 {
+    text-align: justify;
+    padding-right: 61px;
+    margin-top: 12px;
+    margin-bottom: 0px;
+}
+
+.p40 {
+    text-align: justify;
+    padding-right: 60px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.p41 {
+    text-align: left;
+    margin-top: 13px;
+    margin-bottom: 0px;
+}
+
+.p42 {
+    text-align: justify;
+    padding-right: 61px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+.p43 {
+    text-align: left;
+    padding-right: 307px;
+    margin-top: 11px;
+    margin-bottom: 0px;
+}
+
+.p44 {
+    text-align: left;
+    padding-left: 331px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.p45 {
+    text-align: left;
+    padding-right: 139px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.p46 {
+    text-align: justify;
+    padding-right: 61px;
+    margin-top: 6px;
+    margin-bottom: 0px;
+}
+
+.p47 {
+    text-align: justify;
+    padding-right: 60px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+.p48 {
+    text-align: left;
+    padding-right: 437px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.p49 {
+    text-align: left;
+    padding-right: 83px;
+    margin-top: 6px;
+    margin-bottom: 0px;
+}
+
+.p50 {
+    text-align: left;
+    padding-right: 61px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.p51 {
+    text-align: left;
+    padding-left: 331px;
+    margin-top: 23px;
+    margin-bottom: 0px;
+}
+
+.p52 {
+    text-align: justify;
+    padding-right: 61px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.p53 {
+    text-align: left;
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+.p54 {
+    text-align: left;
+    margin-top: 33px;
+    margin-bottom: 0px;
+}
+
+.p55 {
+    text-align: justify;
+    padding-left: 19px;
+    padding-right: 61px;
+    margin-top: 9px;
+    margin-bottom: 0px;
+    text-indent: -19px;
+}
+
+.p56 {
+    text-align: justify;
+    padding-left: 19px;
+    padding-right: 61px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-indent: -19px;
+}
+
+.p57 {
+    text-align: justify;
+    padding-left: 19px;
+    padding-right: 61px;
+    margin-top: 11px;
+    margin-bottom: 0px;
+    text-indent: -19px;
+}
+
+.p58 {
+    text-align: justify;
+    padding-left: 18px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.p59 {
+    text-align: left;
+    padding-left: 331px;
+    margin-top: 306px;
+    margin-bottom: 0px;
+}
+
+.td0 {
+    padding: 0px;
+    margin: 0px;
+    width: 131px;
+    vertical-align: bottom;
+}
+
+.td1 {
+    padding: 0px;
+    margin: 0px;
+    width: 513px;
+    vertical-align: bottom;
+}
+
+.td2 {
+    padding: 0px;
+    margin: 0px;
+    width: 258px;
+    vertical-align: bottom;
+}
+
+.td3 {
+    padding: 0px;
+    margin: 0px;
+    width: 255px;
+    vertical-align: bottom;
+}
+
+.td4 {
+    padding: 0px;
+    margin: 0px;
+    width: 644px;
+    vertical-align: bottom;
+}
+
+.td5 {
+    padding: 0px;
+    margin: 0px;
+    width: 16px;
+    vertical-align: bottom;
+}
+
+.td6 {
+    padding: 0px;
+    margin: 0px;
+    width: 222px;
+    vertical-align: bottom;
+}
+
+.td7 {
+    padding: 0px;
+    margin: 0px;
+    width: 122px;
+    vertical-align: bottom;
+}
+
+.td8 {
+    padding: 0px;
+    margin: 0px;
+    width: 116px;
+    vertical-align: bottom;
+}
+
+.td9 {
+    padding: 0px;
+    margin: 0px;
+    width: 106px;
+    vertical-align: bottom;
+}
+
+.td10 {
+    padding: 0px;
+    margin: 0px;
+    width: 132px;
+    vertical-align: bottom;
+}
+
+.td11 {
+    padding: 0px;
+    margin: 0px;
+    width: 101px;
+    vertical-align: bottom;
+}
+
+.td12 {
+    padding: 0px;
+    margin: 0px;
+    width: 32px;
+    vertical-align: bottom;
+}
+
+.td13 {
+    padding: 0px;
+    margin: 0px;
+    width: 117px;
+    vertical-align: bottom;
+}
+
+.td14 {
+    padding: 0px;
+    margin: 0px;
+    width: 338px;
+    vertical-align: bottom;
+}
+
+.td15 {
+    padding: 0px;
+    margin: 0px;
+    width: 40px;
+    vertical-align: bottom;
+}
+
+.td16 {
+    padding: 0px;
+    margin: 0px;
+    width: 422px;
+    vertical-align: bottom;
+}
+
+.td17 {
+    padding: 0px;
+    margin: 0px;
+    width: 136px;
+    vertical-align: bottom;
+}
+
+.tr0 {
+    height: 19px;
+}
+
+.tr1 {
+    height: 28px;
+}
+
+.tr2 {
+    height: 31px;
+}
+
+.tr3 {
+    height: 27px;
+}
+
+.tr4 {
+    height: 36px;
+}
+
+.tr5 {
+    height: 34px;
+}
+
+.tr6 {
+    height: 26px;
+}
+
+.tr7 {
+    height: 22px;
+}
+
+.t0 {
+    width: 644px;
+    margin-top: 7px;
+    font: 17px 'Times New Roman';
+}
+
+.t1 {
+    width: 360px;
+    margin-top: 8px;
+    font: 17px 'Times New Roman';
+}
+
+.t2 {
+    width: 149px;
+    font: 17px 'Times New Roman';
+}
+
+.t3 {
+    width: 378px;
+    margin-top: 9px;
+    font: 17px 'Times New Roman';
+}
+
+.t4 {
+    width: 558px;
+    margin-left: 52px;
+    margin-top: 37px;
+    font: bold 17px 'Times New Roman';
+}
+    </style>
+
+<div id="page_1">
+    <p class="p0 ft1">
+        CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+        <br /><span class="ft0">Độc lập – Tự do – Hạnh phúc</span>
+    </p>
+    <p class="p1 ft2">HỢP ĐỒNG</p>
+    <p class="p2 ft3">THUÊ MẶT BẰNG KINH DOANH CÓ THỜI HẠN</p>
+    <p class="p3 ft3">TẠI CHỢ BÁCH KHOA</p>
+    <p class="p4 ft4">Số: ......./ @Model.NgayBatDau.Year / HĐTMB</p>
+    <p class="p5 ft7"><span class="ft5"></span><span class="ft6">Căn cứ Bộ Luật Dân sự hiện hành.</span></p>
+    <p class="p6 ft7"><span class="ft5"></span><span class="ft8">Căn cứ Hồ sơ pháp lý của Dự án Khách sạn và Chợ Bách Khoa Chợ do Công ty Cổ phần Đầu tư Bách Khoa MVC làm chủ đầu tư.</span></p>
+    <p class="p7 ft7"><span class="ft5"></span><span class="ft8">Căn cứ Giấy chứng nhận đăng ký đầu tư số 7036344028 của Công ty Cổ phần Đầu tư Bách Khoa MVC được Sở Kế hoạch và Đầu tư Tp Hà Nội cấp.</span></p>
+    <p class="p8 ft7"><span class="ft5"></span><span class="ft6">Căn cứ các hồ sơ tài liệu liên quan và quy định pháp luật hiện hành khác.</span></p>
+    <p class="p8 ft7"><span class="ft5"></span><span class="ft6">Căn cứ chức năng, nhiệm vụ, nhu cầu và khả năng của hai bên.</span></p>
+    <p class="p9 ft4">Hôm nay, ngày @Model.NgayBatDau.Day tháng @Model.NgayBatDau.Month năm @Model.NgayBatDau.Year, tại Văn phòng chợ Bách Khoa, chúng tôi gồm có:</p>
+    <p class="p10 ft9">I. Đại diện bên cho thuê mặt bằng kinh doanh ( gọi tắt là bên A):</p>
+    <table cellpadding=0 cellspacing=0 class="t0">
+        <tr>
+            <td class="tr0 td0"><p class="p11 ft4">1.Đơn vị</p></td>
+            <td colspan=2 class="tr0 td1"><p class="p12 ft4">: Công ty Cổ phần Đầu tư Bách Khoa MVC ( gọi tắt là Công ty)</p></td>
+        </tr>
+        <tr>
+            <td class="tr1 td0"><p class="p11 ft4">2.Người đại diện</p></td>
+            <td class="tr1 td2"><p class="p12 ft4">: Ông Nguyễn Thế Hùng</p></td>
+            <td class="tr1 td3"><p class="p11 ft4">Chức vụ: Tổng Giám đốc</p></td>
+        </tr>
+        <tr>
+            <td class="tr1 td0"><p class="p11 ft4">3.Địa chỉ</p></td>
+            <td colspan=2 class="tr1 td1"><p class="p12 ft4">: 24 Trần Đại Nghĩa, Phường Bách Khoa, Quận Hai Bà Trưng, Tp Hà Nội</p></td>
+        </tr>
+        <tr>
+            <td class="tr1 td0"><p class="p11 ft4">4.Tài khoản</p></td>
+            <td colspan=2 class="tr1 td1"><p class="p12 ft4">: 8124607 tại Ngân hàng Vietbank – Chi nhánh Hai Bà Trưng.</p></td>
+        </tr>
+        <tr>
+            <td class="tr1 td0"><p class="p11 ft4">5.Mã số thuế</p></td>
+            <td class="tr1 td2"><p class="p12 ft4">: 0401431388</p></td>
+            <td class="tr1 td3"><p class="p11 ft10">&nbsp;</p></td>
+        </tr>
+        <tr>
+            <td class="tr1 td0"><p class="p11 ft4">6.Điện thoại</p></td>
+            <td colspan=2 class="tr1 td1"><p class="p12 ft4">: 04. 3.8. 22668 - 0964069907</p></td>
+        </tr>
+        <tr>
+            <td class="tr1 td0"><p class="p11 ft4">7.E.mail</p></td>
+            <td class="tr1 td2"><p class="p12 ft12"><span class="ft4">: </span><a href="mailto:bachkhoacho@gmail"><span class="ft11">Bách Khoa Chợ</span></a></p></td>
+            <td class="tr1 td3"><p class="p11 ft10">&nbsp;</p></td>
+        </tr>
+        <tr>
+            <td class="tr2 td0"><p class="p11 ft4">8.Website</p></td>
+            <td class="tr2 td2"><p class="p12 ft4">: <a href="/"><span class="ft13">www.bachkhoacho.com</span></a></p></td>
+            <td class="tr2 td3"><p class="p11 ft10">&nbsp;</p></td>
+        </tr>
+    </table>
+    <p class="p13 ft9">II. Đại diện bên thuê mặt bằng kinh doanh ( gọi tắt là bên B ):</p>
+    <table cellpadding=0 cellspacing=0 class="t1">
+
+        <tr>
+            <td class="tr0 td0"><p class="p11 ft4">1.Đơn vị/Cá nhân</p></td>
+            <td colspan=2 class="tr0 td1"><p class="p12 ft4">: @Model.ChuHoKinhDoanh.HoTen</p></td>
+        </tr>
+        <tr>
+            <td class="tr1 td0"><p class="p11 ft4">2.Số CMT</p></td>
+            <td class="tr1 td2"><p class="p12 ft4">: @Model.ChuHoKinhDoanh.SoCMT</p></td>
+        </tr>
+        <tr>
+            <td class="tr1 td0"><p class="p11 ft4">3.Địa chỉ</p></td>
+            <td colspan=2 class="tr1 td1"><p class="p12 ft4">: @Model.ChuHoKinhDoanh.DiaChi</p></td>
+        </tr>
+        <tr>
+            <td class="tr1 td0"><p class="p11 ft4">4.Điện thoại</p></td>
+            <td colspan=2 class="tr1 td1"><p class="p12 ft4">: @Model.ChuHoKinhDoanh.SoDienThoai</p></td>
+        </tr>
+        <tr>
+            <td class="tr1 td0"><p class="p11 ft4">5.Mã số thuế</p></td>
+            <td class="tr1 td2"><p class="p12 ft4">: @Model.MaKinhDoanh</p></td>
+            <td class="tr1 td3"><p class="p11 ft10">&nbsp;</p></td>
+        </tr>
+
+
+    </table>
+
+
+
+
+    <table cellpadding=0 cellspacing=0 class="t3">
+        <p class="p20 ft1">Hai bên cùng đồng ý ký kết hợp đồng thuê mặt bằng để kinh doanh với nội dung sau:
+        <p class="p25 ft9"><span class="ft17">Điều 1</span>: Đối tượng; Diện tích; Thời hạn</p>
+        <p class="p21 ft4">Mặt bằng kinh doanh của bên A còn gọi là <nobr>Ki-ốt,</nobr> lô, quầy, sạp, điểm kinh doanh…</p>
+        <p class="p9 ft4">a. Bên A cho Bên B thuê <nobr>Ki-ốt</nobr> (Hoặc khu vực kinh doanh) tại Chợ Bách Khoa, có số hiệu @Model.Kiot.SoTT, thuộc tầng @Model.Kiot.Tang ( ) của Chợ Bách Khoa (gọi tắt là Bách Khoa).</p>
+
+        <tr>
+            <td class="tr5 td14"><p class="p11 ft4">+ Diện tích tạm tính: @Model.Kiot.Tang m<span class="ft14">2 </span></td>
+        </tr>
+        <tr>
+            <td class="tr6 td14"><p class="p23 ft4">Theo sơ đồ đính kèm .</p></td>
+            <td class="tr6 td15"><p class="p11 ft10">&nbsp;</p></td>
+        </tr>
+    </table>
+    <p class="p24 ft4"><span class="ft4">b.</span><span class="ft15">Ngành hàng kinh doanh: Theo đúng qui định pháp luật.</span></p>
+    <p class="p8 ft4"><span class="ft4">c.</span><span class="ft16">Thời hạn thuê: 01 năm ( Bằng chữ: Một năm )</span></p>
+    <p class="p7 ft4"><span class="ft4">d.</span><span class="ft15">Thời hạn bàn giao mặt bằng kinh doanh: Bên A giao mặt bằng ngay cho bên B sau khi hợp đồng có hiệu lực.</span></p>
+    <p class="p25 ft9"><span class="ft17">Điều 2</span>: Giá cả, phương thức thanh toán, phạt vi phạm</p>
+    <p class="p26 ft18"><span class="ft1">1. Giá thuê mặt bằng </span>01 (một) tháng của <nobr>Ki-ốt</nobr> ( hoặc khu vực kinh doanh ) nói trên là: @Model.GiaThue </p>
+    <p class="p27 ft4">ba. Giá trên không bao gồm thuế V.A.T. Bên A sẽ xuất hóa đơn khi bên B đã nộp thuế V.A.T.</p>
+    <p class="p27 ft4">b. Các chi phí điện, nước, vệ sinh môi trường, bảo vệ ban đêm v.v… được tính riêng và áp dụng theo mức của nhà nước quy định cho các chợ, trung tâm thương mại trên cùng địa bàn.</p>
+    <p class="p28 ft4">c. <span class="ft19">Giá thuê mặt bằng của năm tiếp theo</span>: Sẽ tăng thêm một khoản bằng đúng tỷ lệ lạm phát của năm @Model.NgayBatDau.Year do Quốc hội công bố.</p>
+    <p class="p29 ft9"><span class="ft9">2.</span><span class="ft20">Phương thức thanh toán</span></p>
+    <p class="p30 ft4"><span class="ft9">a. Đợt 1</span>: Tiền cự ( tiền cọc ): Ngay sau khi ký hợp đồng bên B phải nộp cho bên A số tiền bằng giá trị thuê của 01 tháng là: @Model.GiaThue .đ</p>
+    <p class="p31 ft4">+ Tiền cự (cọc) không được tính lãi và sẽ được hoàn trả cho bên B sau khi thanh lý hợp đồng.</p>
+    <p class="p32 ft22"><span class="ft21">b. Đợt 2</span>: Chậm nhất 15 (mười lăm) ngày kể từ ngày ký hợp đồng, bên B phải nộp đủ số tiền thuê tháng đầu tiên của <nobr>Ki-ốt</nobr> trên là: @Model.GiaThue.</p>
+    <p class="p9 ft4"><span class="ft9">c</span>.<span class="ft9">Tiền đóng hằng tháng</span>: Từ ngày 01 đến ngày 05 hằng tháng bên B phải nộp cho bên A số tiền thuê mặt bằng của tháng tiếp theo.</p>
+    <p class="p25 ft9"><span class="ft17">Điều 3</span>: Quyền và nghĩa vụ của bên A</p>
+    <p class="p31 ft19"><span class="ft9">a. </span>Quyền về việc đơn phương chấm dứt hợp đồng và thanh lý hợp đồng<span class="ft9">:</span></p>
+    <p class="p33 ft4">a.1 Bên A có quyền đơn phương chấm dứt hợp đồng, thanh lý hợp đồng và thu hồi lại mặt bằng không điều kiện nếu bên B vi phạm một trong những trường hợp sau đây:</p>
+
+
+    <p class="p35 ft4"><span class="ft4">-</span><span class="ft15">Không thực hiện đúng nội dung quy định trong hợp đồng thuê mặt bằng này.</span></p>
+    <p class="p8 ft4"><span class="ft4">-</span><span class="ft15">Trường hợp bên B vi phạm chủ trương, chính sách, Pháp luật của Nhà nước.</span></p>
+    <p class="p7 ft4"><span class="ft4">-</span><span class="ft15">Quá 10 (mười ngày) mà bên B không thanh toán tiền mặt bằng cùng các khoản phí; lệ phí và các nghĩa vụ khác (nếu có) cho bên A.</span></p>
+    <p class="p25 ft7"><span class="ft4">a.2 </span>Các quyền khác<span class="ft4">:</span></p>
+    <p class="p36 ft4">- Bên A được quyền quy hoạch (bao gồm việc điều chỉnh), phân bố mặt bằng, không gian trưng bày hàng hóa, quảng cáo, thiết bị, lối đi phù hợp với cơ sở hạ tầng để phục vụ yêu cầu hoạt động và quản lý của Bách Khoa.</p>
+    <p class="p10 ft9">b. Nghĩa vụ bên A:</p>
+    <p class="p7 ft4">b.1 Bên A bàn giao quầy hàng có sẵn, đúng vị trí và không thu tiền xây dựng quầy hàng theo mẫu. Trường hợp bên B muốn thiết kế, thi công theo thương hiệu riêng của mình thì phải được sự đồng ý của bên A, nhằm đảm bảo các yêu cầu về PCCC và các quy định chung.</p>
+    <p class="p37 ft4">b.2 Hướng dẫn bên B lập đầy đủ các thủ tục đăng ký kinh doanh theo qui hoạch ngành hàng của Bách Khoa .</p>
+    <p class="p38 ft4">b.3 Cung cấp điện, nước và các dịch vụ khác theo khả năng của bên A khi bên B có nhu cầu đăng ký sử dụng.</p>
+    <p class="p7 ft4">b.4 Thường xuyên kiểm tra, tu sửa mặt bằng để bên B kinh doanh thuận lợi. Giữ gìn an ninh trật tự tại địa bàn Bách Khoa và khu vực kinh doanh.</p>
+    <p class="p38 ft4">b.5 Khi cần thu hồi mặt bằng đã cho bên B thuê để phục vụ cho việc quy hoạch, sắp xếp, xây dựng, sửa chữa thì phải thông báo trước cho bên B ít nhất là 01 ( một ) tháng để bên B thu xếp hàng hóa, tài sản, trả lại mặt bằng thuê để phục vụ cho các công tác đó và bên A có trách nhiệm sắp xếp, hoán đổi vị trí tạm thời để bên B tiếp tục công việc kinh doanh.</p>
+    <p class="p39 ft4">b.6 Bên A sẽ tạo điều kiện thuận lợi để các bên thứ 3 cung cấp một số dịch vụ hiện đại nhằm tạo điều kiện kinh doanh tiên tiến, thuận lợi hơn cho bên B.</p>
+    <p class="p40 ft4">b.7 Bảo hiểm: Việc mua bảo hiểm cháy, nổ bắt buộc phải được bên A tập trung thực hiện theo đúng quy định hiện hành của nhà nước. Mức bình quân cho mỗi một <nobr>ki-ốt</nobr> là 500.000.000đ (Năm trăm triệu đồng). Bên A sẽ cung cấp bản sao hợp đồng bảo hiểm để bên B làm căn cứ thanh toán với bên bảo hiểm. Trường hợp bên B có nhu cầu mua bảo hiểm vượt mức nói trên thì đăng ký để bên A hỗ trợ triển khai hợp đồng cụ thể với đơn vị bảo hiểm.</p>
+    <p class="p41 ft9">c. Trách nhiệm đền bù không thuộc bên A khi<span class="ft4">:</span></p>
+    <p class="p7 ft4">c.1 Bên B chưa thực hiện nghĩa vụ thanh toán đầy đủ, đúng thời gian quy định tiền trông coi hàng hóa theo hợp đồng;</p>
+    <p class="p7 ft4">c.2 Hàng hóa bị mất do để ngoài phạm vi diện tích của bên B (theo quy định tại hợp đồng); trang thiết bị chứa đựng, bảo quản hàng hóa của bên B bị hư hỏng hoặc không đúng tiêu chuẩn quy định.</p>
+    <p class="p42 ft4">c.3 Bên B có trách nhiệm bảo quản, cất giữ mọi tài sản của mình. Khi xảy ra mất mác thì bên A sẽ phối hợp để bên B cùng với cơ quan chức năng tích cực giải quyết vụ việc.</p>
+    <p class="p43 ft1"><span class="ft0">Điều 4</span>: Quyền, nghĩa vụ của bên B và chính sách ưu đãi . <span class="ft23">a. </span>Quyền của Bên B:</p>
+
+
+    <p class="p45 ft18">a.1 Phải tuân thủ các nội quy, quy chế, cam kết và các quy định khác của Bách Khoa. a.2 Được đảm bảo quyền lợi hợp pháp trong kinh doanh theo quy định của pháp luật.</p>
+    <p class="p46 ft4">a.3 Khi hợp đồng hết hạn thì bên B được bên A xem để gia hạn một thời gian ngắn hoặc ký lại hợp đồng thuê mặt bằng mới, để tiếp tục kinh doanh.</p>
+    <p class="p38 ft4">a.4 Có quyền đề nghị bên A xem xét khi có nhu cầu thay đổi vị trí kinh doanh đã thuê, hoặc chuyển đổi mặt hàng, ngành hàng phù hợp quy hoạch.</p>
+    <p class="p38 ft4">a.5 Trường hợp đau ốm, thai sản…muốn nhờ người thân đứng ra bán thay trong thời gian tạm nghỉ thì bên B làm giấy ủy quyền hợp lệ và đề nghị bên A giải quyết.</p>
+    <p class="p38 ft4">a.6 Các dịch vụ như trông coi hàng hóa để lại đêm hoặc trong thời gian tạm nghỉ; sử dụng điện, nước… nếu bên B có nhu cầu thì ký hợp đồng riêng với bên A.</p>
+    <p class="p25 ft9"><span class="ft24">b. </span>Trách nhiệm Bên B:</p>
+    <p class="p31 ft4">b.1 Bên B phải có giấy phép đăng ký kinh doanh và phải tổ chức kinh doanh thực tế.</p>
+    <p class="p7 ft4">b.2 Hàng hóa, tài sản kinh doanh bên B tự giữ gìn, bảo quản. Nếu có nhu cầu trông coi hàng hóa để lại qua đêm thì bên B đăng ký hợp đồng trông coi hàng hóa ban đêm với bên A. Trong các trường hợp rủi ro xảy ra làm thiệt hại đến hàng hóa, tài sản thì bên B được hưởng quyền lợi theo hợp đồng bảo hiểm mà bên A cung cấp nói trên ( Điều 3 ).</p>
+    <p class="p10 ft4">b.3 Tuân thủ các qui định của Nhà nước đối với những mặt hàng kinh doanh có điều kiện.</p>
+    <p class="p36 ft22">b.4 Khi bên B không có nhu cầu tiếp tục thuê mặt bằng kinh doanh thì phải trực tiếp báo cho bên A biết trước 30 (Ba mươi) ngày bằng văn bản để làm thủ tục thanh lý hợp đồng.</p>
+    <p class="p38 ft4">b.5 Khi có nhu cầu sử dụng điện, nước và các dịch vụ khác phải có Giấy đăng ký và được bên A thống nhất bằng việc ký kết hợp đồng.</p>
+    <p class="p10 ft9"><span class="ft17">Điều 5</span>: Về việc vi phạm hợp đồng:</p>
+    <p class="p31 ft9">a. Trách nhiệm bồi thường của bên A:</p>
+    <p class="p47 ft4">Sau khi có hiệu lực, nếu bên A đơn phương chấm dứt hợp đồng thì ngoài việc phải hoàn trả cho bên B giá trị còn lại thực tế, bên A còn phải phải bồi thường cho bên B 10% (mười phần trăm) trên giá trị còn lại thực tế đó.</p>
+    <p class="p10 ft21">b. Trách nhiệm bồi thường của bên B:</p>
+    <p class="p36 ft22">Trường hợp bên B ký Hợp đồng với bên A nhưng đơn phương chấm dứt hợp đồng trước thời hạn thì bên B phải chịu mất 50% giá trị tiền cọc và những chi phí thiệt hại do bên B gây ra.</p>
+    <p class="p48 ft1"><span class="ft0">Điều 6</span>. Chấm dứt và thanh lý hợp đồng a. Chấm dứt hợp đồng:</p>
+    <p class="p49 ft18">Việc chấm dứt hợp đồng được xem là do bên B vi phạm hợp đồng trong các trường hợp sau: a.1 Bên B sử dụng mặt bằng kinh doanh không đúng mục đích, ngành hàng đã ghi tại Điều 1.</p>
+    <p class="p50 ft4">a.2 Bên B vi phạm pháp luật trong quá trình kinh doanh đã bị cơ quan có thẩm quyền thu hồi Giấy chứng nhận đăng ký kinh doanh hoặc bị đình chỉ kinh doanh không thời hạn.</p>
+    <p class="p28 ft4">a.3 Bên B sang nhượng, thế chấp vay vốn, cho thuê lại mặt bằng kinh doanh không đúng quy định của Hợp đồng hoặc trái pháp luật.</p>
+
+
+    <p class="p52 ft25">a4. Nếu quá 10 (mười ngày) qui định cho từng đợt nộp tiền mà bên B không tiếp tục việc nộp tiền thì xem như bên B đơn phương chấm dứt hợp đồng và hiệu lực hợp đồng tự động chấm dứt mà không cần bất kỳ một thủ tục nào khác và bên B phải bồi thường như nêu trên.</p>
+    <p class="p53 ft9">b<span class="ft4">. </span>Thanh lý hợp đồng:</p>
+    <p class="p7 ft4">b.1 Hai bên phải ký hồ sơ thanh lý hợp đồng. Bên B sẽ được nhận toàn bộ số tiền còn lại ( nếu có ) sau 10 ngày hoàn tất việc này.</p>
+    <p class="p40 ft4">b.2 Khi đến hạn, nếu bên B không còn nhu cầu sử dụng mặt bằng kinh doanh nữa thì phải thu dọn phương tiện tài sản, hàng hóa và sửa chữa mọi hư hỏng (nếu có) để hoàn trả lại nguyên trạng mặt bằng đã thuê cho bên A và thanh lý hợp đồng.Nếu bên B có nhu cầu tiếp tục sử dụng thì trước khi hợp đồng hết hiệu lực 15 ngày phải đến cùng bên A bàn bạc để ký hợp đồng thuê mặt bằng kinh doanh mới hoặc gia hạn lại hợp đồng thuê mặt bằng kinh doanh, mới được tiếp tục sử dụng.</p>
+    <p class="p54 ft9"><span class="ft17">Điều 7</span>: Điều khoản chung</p>
+    <p class="p55 ft4"><span class="ft4">a.</span><span class="ft26">Hợp đồng có hiệu lực kể từ ngày bên B hoàn thành nghĩa vụ việc đóng tiền đợt 1 ( tiền cự ) được quy định tại Điều 2.</span></p>
+    <p class="p56 ft4"><span class="ft4">b.</span><span class="ft27">Hai bên cam kết thực hiện đầy đủ các điều khoản của hợp đồng này. Trong quá trình thực hiện nếu có vấn đề phát sinh mới thì hai bên cùng bàn bạc, nghiên cứu và đi đến thống nhất điều chỉnh hợp đồng để đảm bảo lợi ích đôi bên. Nếu một trong hai bên vi phạm hợp đồng thì phải chịu trách nhiệm đền bù thiệt hại cho bên kia theo thỏa thuận (nếu có).</span></p>
+    <p class="p57 ft4"><span class="ft4">c.</span><span class="ft26">Trường hợp có tranh chấp không tự giải quyết được thì hai bên có quyền khiếu nại tới Tòa án có thẩm quyền, phán quyết của Tòa án là kết quả cuối cùng hai bên phải thực hiện.Án phí do bên thua chịu .</span></p>
+    <p class="p57 ft4"><span class="ft4">d.</span><span class="ft28">Hợp đồng đã được các bên tham gia xem xét kỹ và ký . Mọi phụ lục điều chỉnh, bổ sung nội dung của hợp đồng nầy phải được những người có thẩm quyền ký mới có giá trị thi hành.</span></p>
+    <p class="p58 ft4">Hợp đồng được lập thành 04 bản, mỗi bên giữ 02 bản, có giá trị pháp lý như nhau.</p>
+    <table cellpadding=0 cellspacing=0 class="t4">
+        <tr>
+            <td class="tr7 td16"><p class="p11 ft9">ĐẠI DIỆN BÊN A</p></td>
+            <td class="tr7 td17"><p class="p11 ft9">ĐẠI DIỆN BÊN B</p></td>
+        </tr>
+    </table>
+</div>

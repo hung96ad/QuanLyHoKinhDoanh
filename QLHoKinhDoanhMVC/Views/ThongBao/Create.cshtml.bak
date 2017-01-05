@@ -1,0 +1,51 @@
+﻿@model QLHoKinhDoanhMVC.Models.ThongBao
+
+
+@{
+    ViewBag.Title = "Đăng thông báo mới";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h1 class="page-header">Đăng thông báo mới</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-lg-12">
+
+        <div class="form-group">
+            <label class="control-label">Tiêu đề</label>
+            @Html.TextBoxFor(model => model.TieuDe, new { Class = "form-control", type = "text", placeholder = "Tiêu đề" })
+            @Html.ValidationMessageFor(model => model.TieuDe, null, new { Class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Mô tả</label>
+            @Html.TextBoxFor(model => model.MoTa, new { Class = "form-control", type = "text", placeholder = "Mô tả về thông báo" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Nội dung</label>
+        </div>
+
+        <div class="form-group">
+            @Html.TextAreaFor(model => model.NoiDung, new { Class = "form-control", id = "editor" })
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <input type="submit" class="btn btn-primary" value="Thêm" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-default", type = "button" })
+            </div>
+        </div>
+    </div>
+}
+<!--  CKeditor JavaScript-->
+<script>    CKEDITOR.replace('editor');</script>
+

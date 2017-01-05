@@ -1,0 +1,61 @@
+﻿@model QLHoKinhDoanhMVC.Models.ChangeMatKhau
+@{
+    ViewBag.Title = "Đổi mật khẩu";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h1 class="page-header">@ViewBag.Title</h1>
+
+
+@using (Html.BeginForm("ChangeMatKhau", "User", FormMethod.Post, new { id = "identicalForm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-lg-6">
+        @if (ViewBag.ThongBao != null)
+        {
+            <div class="@ViewBag.Color">@ViewBag.ThongBao </div>
+        }
+        <div class="form-group">
+            <label class="control-label col-xs-4">Mật khẩu hiện tại</label>
+            <div class="col-xs-8">
+                @Html.TextBoxFor(model => model.MatKhauOld, new { @class = "form-control", type = "password", required = "required" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-4">Mật khẩu mới</label>
+            <div class="col-xs-8">
+                @Html.PasswordFor(model => model.MatKhauNew, new { @class = "form-control", required = "required", minlength = 6 })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-4">Xác nhận lại mật khẩu mới</label>
+            <div class="col-xs-8">
+                <input type="password" class="form-control" id="confirm_password" required>
+                 </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-8">
+                <input type="submit" class="btn btn-primary" value="Đổi mật khẩu" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    var password = document.getElementById("MatKhauNew")
+  , confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Mật khẩu nhập lại không đúng");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>

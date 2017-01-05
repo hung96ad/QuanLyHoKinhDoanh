@@ -1,0 +1,118 @@
+﻿@using QLHoKinhDoanhMVC.Models;
+@model AccountChuHoNhanVien
+
+@{
+    ViewBag.Title = "Thêm tài khoản mới";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h1 class="page-header">Thêm tài khoản mới</h1>
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+        @Html.Raw(TempData["AlertMessage"])
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-lg-6">
+
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Họ Tên</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.HoTen, new { Class = "form-control", type = "text", placeholder = "Nguyễn Văn A", required = "requied" })
+                @Html.ValidationMessageFor(model => model.HoTen, null, new { Class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Ngày sinh</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.NgaySinh, new { Class = "form-control", type = "date", required = "requied" })
+                @Html.ValidationMessageFor(model => model.NgaySinh, null, new { Class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Số CMT</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.SoCMT, new { Class = "form-control", type = "text", required = "requied", maxlength = "12" })
+                @Html.ValidationMessageFor(model => model.SoCMT, null, new { Class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Địa chỉ</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.DiaChi, new { Class = "form-control", type = "text", placeholder = "Số nhà, đường phố, phường, thành phố, tỉnh", required = "requied" })
+                @Html.ValidationMessageFor(model => model.DiaChi, null, new { Class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Email</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.Email, new { Class = "form-control", type = "Email", placeholder = "abc@gmail.com", required = "requied" })
+                @Html.ValidationMessageFor(model => model.Email, null, new { Class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Số điện thoại</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.SoDienThoai, new { Class = "form-control", type = "text", placeholder = "01234567890", required = "requied", maxlength = "15" })
+                @Html.ValidationMessageFor(model => model.SoDienThoai, null, new { Class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Loại tài khoản</label>
+            <label class="radio-inline">
+                @Html.RadioButtonFor(model => model.MaQuyen, "2", new { @checked = "checked" })
+                Kế toán
+            </label>
+            <label class="radio-inline">
+                @Html.RadioButtonFor(model => model.MaQuyen, "3")
+                Bảo vệ
+            </label>
+            <label class="radio-inline">
+                @Html.RadioButtonFor(model => model.MaQuyen, "4")
+                Nhân viên vệ sinh
+            </label>
+            <label class="radio-inline">
+                @Html.RadioButtonFor(model => model.MaQuyen, "5")
+                Chủ hộ kinh doanh
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2">Giới tính</label>
+            <label class="radio-inline">
+                @Html.RadioButtonFor(model => model.GioiTinh, "Nam", new { @checked = "checked" })
+                Nam
+            </label>
+            <label class="radio-inline">
+                @Html.RadioButtonFor(model => model.GioiTinh, "Nữ")
+                Nữ
+            </label>
+            <label class="radio-inline">
+                @Html.RadioButtonFor(model => model.GioiTinh, "Khác")
+                Khác
+            </label>
+        </div>
+
+        <div class="col-xs-offset-2 form-group">
+            <input type="submit" class="btn btn-primary" value="Tạo" />
+        </div>
+        <div class="col-xs-offset-2 form-group">
+            @Html.ActionLink("Trở về", "Index", null, new { Class = "btn btn-default", type = "button" })
+        </div>
+    </div>
+
+}
+

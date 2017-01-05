@@ -1,0 +1,25 @@
+﻿<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav">
+            <li><h3>Thông báo mới</h3></li>
+            @using QLHoKinhDoanhMVC.Models;
+            @model List<ThongBao>
+
+            @{
+                foreach (var item in Model)
+                {
+                    <li>
+                        @if (item.TieuDe.Length > 30)
+                        {
+                            item.TieuDe = item.TieuDe.Substring(0, 30);
+
+                        }
+
+                        @Html.ActionLink(item.TieuDe, "Details", new { id = item.MaThongBao })
+
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>

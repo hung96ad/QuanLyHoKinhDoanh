@@ -1,0 +1,31 @@
+﻿@model QLHoKinhDoanhMVC.Models.HopDongKiot
+
+@{
+    ViewBag.Title = "Hợp đồng kinh doanh với " + @Model.ChuHoKinhDoanh.HoTen;
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2 class="page-header">@ViewBag.Title</h2>
+<div class="col-lg-12">
+    <div class="form-group">
+        @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-default", type = "button" })
+        @if (Model.NgayBatDau.Date.AddDays(3) >= DateTime.Now.Date)
+        {
+            @Html.ActionLink("Xóa", "Delete", new { id = Model.MaHopDong }, new { onclick = "return confirm('Bạn chắc chắn muốn xóa hợp đồng này?');", @class = "btn btn-danger", type = "button" })
+        }
+    </div>
+
+    <div class="form-group">
+        @Html.ActionLink(" Tải về PDF", "DownloadPartialViewPDF", new { id = Model.MaHopDong }, new { @class = "btn btn-primary fa fa-download btn-lg", type = "button" })
+    </div>
+</div>
+
+<div class="col-lg-3"></div>
+<div class="col-lg-6">
+
+    @Html.Action("HopDongPartial", "HopDongKiot", new { id = Model.MaHopDong })
+
+</div>
+<div class="col-lg-3"></div>
+
+

@@ -1,0 +1,56 @@
+﻿@model QLHoKinhDoanhMVC.Models.ThongBao
+
+@{
+    ViewBag.Title = "Sửa thông báo " + @Model.TieuDe;
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h1 class="page-header">Sửa thông báo</h1>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h3>@Model.TieuDe</h3>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MaThongBao)
+
+        <div class="form-group">
+            <label class="control-label">Tiêu đề</label>
+            @Html.TextBoxFor(model => model.TieuDe, new { @class = "form-control", type = "text" })
+            @Html.ValidationMessageFor(model => model.TieuDe, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Mô tả</label>
+            @Html.TextBoxFor(model => model.MoTa, new { @class = "form-control", type = "text", placeholder = "Mô tả về thông báo" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Nội dung</label>
+        </div>
+
+        <div class="form-group">
+            @Html.TextAreaFor(model => model.NoiDung, new { @class = "form-control", id = "editor" })
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="submit" class="btn btn-primary" value="Lưu" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-12">
+                @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-default", type = "button" })
+            </div>
+        </div>
+    </div>
+}
+
+<!--  CKeditor JavaScript-->
+<script>    CKEDITOR.replace('editor');</script>
+

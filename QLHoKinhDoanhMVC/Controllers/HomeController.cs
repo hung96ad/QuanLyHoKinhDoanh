@@ -36,10 +36,8 @@ namespace QLHoKinhDoanhMVC.Controllers
             return PartialView(ListTinMoi);
         }
         /// <summary>
-        /// Xem chi tiết thông báo
+        /// Xem chi tiết thông báo theo id
         /// </summary>
-        /// <param name="MaThongBao"></param>
-        /// <returns></returns>
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -52,6 +50,29 @@ namespace QLHoKinhDoanhMVC.Controllers
                 return HttpNotFound();
             }
             return View(thongbao);
+        }
+
+        // Check cookie
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            if (Request.Cookies["user"] != null)
+            {
+                if (Request.Cookies["matkhau"] != null)
+                {
+                    string user = Request.Cookies["user"].Value;
+                    string matkhau = Request.Cookies["matkhau"].Value;
+                    LoginModel login = new LoginModel();
+                    int result = login.Login(user, matkhau);
+                    if (result == 1)
+                    {
+                        UserLogin userSession = new UserLogin();
+                        userSession.UserID = user;
+                        userSession.MaQuyen = db.Accounts.Find(user).MaQuyen;
+                        Session.Add(CommonConstants.USER_SESSION, userSession);
+                    }
+                }
+            }
+            base.OnActionExecuting(filterContext);
         }
 
         protected override void Dispose(bool disposing)

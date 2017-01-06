@@ -26,10 +26,22 @@ namespace QLHoKinhDoanhMVC.Controllers
             if (result == 1)
             {
                 UserLogin userSession = new UserLogin();
+                AccountChuHoNhanVien acc = new AccountChuHoNhanVien();
                 userSession.UserID = login.UserID;
                 userSession.MaQuyen = db.Accounts.Find(userSession.UserID).MaQuyen;
                 Session.Add(CommonConstants.USER_SESSION, userSession);
-                AccountChuHoNhanVien acc = new AccountChuHoNhanVien();
+                if (login.RememberMe)
+                {
+                    HttpCookie user = new HttpCookie("user");
+                    user.Value = userSession.UserID;
+                    user.Expires = DateTime.Now.AddDays(15);
+                    Response.Cookies.Add(user);
+
+                    HttpCookie matkhau = new HttpCookie("matkhau");
+                    matkhau.Value = EncryptorMD5.MD5Hash(login.MatKhau);
+                    matkhau.Expires = DateTime.Now.AddDays(15);
+                    Response.Cookies.Add(matkhau);
+                }
                 if (acc.CheckMatKhauMacDinh(login.UserID))
                 {
                     ViewBag.ThongBao = "Mật khẩu của bạn đang là mặc định. Vui lòng đổi mật khẩu hiện tại";
@@ -53,8 +65,22 @@ namespace QLHoKinhDoanhMVC.Controllers
             return View("Index");
         }
 
+
+
         public ActionResult Logout()
         {
+            if (Response.Cookies["user"] != null)
+            {
+                HttpCookie cookie = new HttpCookie("user");
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookie);
+            }
+            if (Response.Cookies["matkhau"] != null)
+            {
+                HttpCookie cookie = new HttpCookie("matkhau");
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookie);
+            }
             Session[CommonConstants.USER_SESSION] = null;
             return RedirectToAction("Index", "Home");
         }

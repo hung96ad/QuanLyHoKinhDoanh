@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QLHoKinhDoanhMVC.Common;
+using QLHoKinhDoanhMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,10 +17,11 @@ namespace QLHoKinhDoanhMVC
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
+
+
     }
 }

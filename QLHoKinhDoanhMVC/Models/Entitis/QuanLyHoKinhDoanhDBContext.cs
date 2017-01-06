@@ -12,6 +12,7 @@ namespace QLHoKinhDoanhMVC.Models
         {
         }
 
+        public virtual DbSet<Action> Actions { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<ChucNang> ChucNangs { get; set; }
         public virtual DbSet<ChuHoKinhDoanh> ChuHoKinhDoanhs { get; set; }
@@ -20,6 +21,7 @@ namespace QLHoKinhDoanhMVC.Models
         public virtual DbSet<NangCapCho> NangCapChoes { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<PhanQuyen> PhanQuyens { get; set; }
+        public virtual DbSet<Quyen> Quyens { get; set; }
         public virtual DbSet<PhiHoKinhDoanh> PhiHoKinhDoanhs { get; set; }
         public virtual DbSet<ThietBi> ThietBis { get; set; }
         public virtual DbSet<ThongBao> ThongBaos { get; set; }
@@ -29,6 +31,16 @@ namespace QLHoKinhDoanhMVC.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Action>()
+                .Property(e => e.Action1)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Action>()
+                .HasMany(e => e.Quyens)
+                .WithRequired(e => e.Action1)
+                .HasForeignKey(e => e.Action)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Account>()
                 .Property(e => e.UserID)
                 .IsFixedLength();
@@ -123,6 +135,18 @@ namespace QLHoKinhDoanhMVC.Models
             modelBuilder.Entity<TienLuongNV>()
                 .Property(e => e.MaNhanVien)
                 .IsFixedLength();
+
+            modelBuilder.Entity<PhanQuyen>()
+                .HasMany(e => e.Quyens)
+                .WithRequired(e => e.PhanQuyen)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Quyen>()
+                .Property(e => e.Action)
+                .IsFixedLength();
         }
+
+
+
     }
 }

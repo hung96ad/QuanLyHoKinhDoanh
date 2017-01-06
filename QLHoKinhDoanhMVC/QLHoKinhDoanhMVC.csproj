@@ -190,6 +190,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HopDongKiotController.cs" />
     <Compile Include="Controllers\KiotController.cs" />
+    <Compile Include="Controllers\PhanQuyenController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ThongBaoController.cs" />
@@ -200,11 +201,13 @@
     <Compile Include="Models\EncryptorMD5.cs" />
     <Compile Include="Models\Entitis\Account.cs" />
     <Compile Include="Models\AccountChuHoNhanVien.cs" />
+    <Compile Include="Models\Entitis\Action.cs" />
     <Compile Include="Models\Entitis\ChucNang.cs" />
     <Compile Include="Models\Entitis\ChuHoKinhDoanh.cs" />
     <Compile Include="Models\Entitis\HopDongKiot.cs" />
     <Compile Include="Models\Entitis\Kiot.cs" />
     <Compile Include="Models\Entitis\NangCapCho.cs" />
+    <Compile Include="Models\Entitis\Quyen.cs" />
     <Compile Include="Models\IHopDongKiot.cs" />
     <Compile Include="Models\IPhanQuyen.cs" />
     <Compile Include="Models\KiotChange.cs" />
@@ -838,6 +841,11 @@
     <Content Include="Views\Manage\ChuHo.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
     <Content Include="Views\HopDongKiot\HopDongChuHo.cshtml" />
+    <Content Include="Views\PhanQuyen\Create.cshtml" />
+    <Content Include="Views\PhanQuyen\Delete.cshtml" />
+    <Content Include="Views\PhanQuyen\Details.cshtml" />
+    <Content Include="Views\PhanQuyen\Edit.cshtml" />
+    <Content Include="Views\PhanQuyen\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -72,8 +72,10 @@ namespace QLHoKinhDoanhMVC.Controllers
             {
                 db.Entry(kiot).State = EntityState.Modified;
                 db.SaveChanges();
+                SetAlert("Sửa Kiot thành công", "success");
                 return RedirectToAction("Index");
             }
+            SetAlert("Sửa Kiot thất bại", "error");
             return View(kiot);
         }
 

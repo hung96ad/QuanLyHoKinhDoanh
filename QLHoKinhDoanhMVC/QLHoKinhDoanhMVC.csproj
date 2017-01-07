@@ -187,6 +187,8 @@
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ChucNangController.cs" />
+    <Compile Include="Controllers\DanhMucController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HopDongKiotController.cs" />
     <Compile Include="Controllers\KiotController.cs" />
@@ -201,7 +203,6 @@
     <Compile Include="Models\EncryptorMD5.cs" />
     <Compile Include="Models\Entitis\Account.cs" />
     <Compile Include="Models\AccountChuHoNhanVien.cs" />
-    <Compile Include="Models\Entitis\Action.cs" />
     <Compile Include="Models\Entitis\ChucNang.cs" />
     <Compile Include="Models\Entitis\ChuHoKinhDoanh.cs" />
     <Compile Include="Models\Entitis\HopDongKiot.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Models\IPhanQuyen.cs" />
     <Compile Include="Models\KiotChange.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\Entitis\DanhMuc.cs" />
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\Entitis\NhanVien.cs" />
     <Compile Include="Models\Entitis\PhanQuyen.cs" />
@@ -223,6 +225,7 @@
     <Compile Include="Models\Entitis\TienDienNuoc.cs" />
     <Compile Include="Models\Entitis\TienLuongNV.cs" />
     <Compile Include="Models\IAccount.cs" />
+    <Compile Include="Models\QuyenAction.cs" />
     <Compile Include="Models\ReflectionController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -826,7 +829,6 @@
     <Content Include="Views\ThongBao\Create.cshtml" />
     <Content Include="Views\ThongBao\Details.cshtml" />
     <Content Include="Views\Account\AccountChuHo.cshtml" />
-    <Content Include="Views\Kiot\Create.cshtml" />
     <Content Include="Views\Kiot\Edit.cshtml" />
     <Content Include="Views\Kiot\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
@@ -841,11 +843,13 @@
     <Content Include="Views\Manage\ChuHo.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
     <Content Include="Views\HopDongKiot\HopDongChuHo.cshtml" />
-    <Content Include="Views\PhanQuyen\Create.cshtml" />
-    <Content Include="Views\PhanQuyen\Delete.cshtml" />
-    <Content Include="Views\PhanQuyen\Details.cshtml" />
     <Content Include="Views\PhanQuyen\Edit.cshtml" />
     <Content Include="Views\PhanQuyen\Index.cshtml" />
+    <Content Include="Views\ChucNang\Edit.cshtml" />
+    <Content Include="Views\ChucNang\Index.cshtml" />
+    <Content Include="Views\DanhMuc\Edit.cshtml" />
+    <Content Include="Views\DanhMuc\Index.cshtml" />
+    <Content Include="Views\Home\NotificationAuthorize.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

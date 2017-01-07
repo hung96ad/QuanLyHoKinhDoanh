@@ -13,16 +13,10 @@
 
         public int MaQuyen { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Action { get; set; }
+        public int Ma { get; set; }
 
-        [StringLength(100)]
-        public string Mota { get; set; }
+        public virtual ChucNang ChucNang { get; set; }
 
         public virtual PhanQuyen PhanQuyen { get; set; }
-
-        public virtual Action Action1 { get; set; }
-
     }
 }

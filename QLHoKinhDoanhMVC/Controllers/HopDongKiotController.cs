@@ -19,12 +19,16 @@ namespace QLHoKinhDoanhMVC.Controllers
         public ActionResult Index()
         {
             var hopdongkiots = db.HopDongKiots.Include(h => h.ChuHoKinhDoanh).Include(h => h.Kiot);
+            HopDongKiot hopdong = new HopDongKiot();
+            hopdong.CheckHopDong(); 
             return View(hopdongkiots.ToList());
         }
 
         // GET: HopDongKiot/ChuHo
         public ActionResult HopDongChuHo()
         {
+            HopDongKiot hopdong = new HopDongKiot();
+            hopdong.CheckHopDong();
             var hopdongkiot = db.HopDongKiots.Include(h => h.ChuHoKinhDoanh).Include(h => h.Kiot).Where(h => h.MaKinhDoanh == UserID).ToList();
             if (hopdongkiot.Count == 0)
             {

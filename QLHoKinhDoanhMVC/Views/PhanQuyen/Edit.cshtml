@@ -1,54 +1,59 @@
-﻿@model QLHoKinhDoanhMVC.Models.Quyen
+﻿@model QLHoKinhDoanhMVC.Models.PhanQuyen
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Cấp quyền cho " + @Model.LoaiQuyen;
     Layout = "~/Views/Shared/_LayoutManage.cshtml";
 }
 
-<h2>Edit</h2>
+<h1 class="page-header">@ViewBag.Title</h1>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Quyen</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.ID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaQuyen, "MaQuyen", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("MaQuyen", String.Empty)
-                @Html.ValidationMessageFor(model => model.MaQuyen)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Action, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Action)
-                @Html.ValidationMessageFor(model => model.Action)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Mota, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Mota)
-                @Html.ValidationMessageFor(model => model.Mota)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+<div id="msg"></div>
+<div class="col-lg-6">
+    <div class="form-group">
+        <label class="control-label">Danh mục</label>
+        @Html.DropDownList("listController", (IEnumerable<SelectListItem>)ViewBag.listController,
+             new { @class = "form-control", size = 10, onchange = "GetQuyen('/PhanQuyen/GetQuyen/'+this.value,'" + Model.MaQuyen + "');" })
     </div>
-}
+</div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="col-lg-6">
+    <label class="control-label">Quyền hạn</label>
+    <div class="form-group">
+        <div id="listaction"></div>
+    </div>
+</div>
+<script>
+    function GetQuyen(action, maquyen) {
+        $.ajax({
+            method: "GET",
+            url: action,
+            data: { maquyentemp: maquyen },
+            success: function (data) {
+                $('#listaction').html('');
+                $.each(data, function (index, value) {
+                    if (value.IsGranted)
+                        $('#listaction').append("<div class = 'checkbox'> <input type='checkbox' checked onchange ='Update(" + "\"/PhanQuyen/Update/\"+this.value,\"@Model.MaQuyen\")' value='" + value.QuyenID + "'> " + value.MoTa + "</div>");
+                    else
+                        $('#listaction').append("<div class = 'checkbox'> <input type='checkbox' onchange ='Update(" + "\"/PhanQuyen/Update/\"+this.value,\"@Model.MaQuyen\")' value='" + value.QuyenID + "'> " + value.MoTa + "</div>");
+                });
+            }
+        })
+    }
+
+    function Update(action, maquyen) {
+        $.ajax({
+            method: "GET",
+            url: action,
+            data: { maquyentemp: maquyen },
+            success: function (data) {
+                $('#msg').html(data);
+            }
+        })
+    }
+</script>
+
+<div class="form-group">
+    <div class="col-xs-12">
+        @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-default" })
+    </div>
 </div>

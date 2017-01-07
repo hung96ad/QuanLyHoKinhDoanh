@@ -17,8 +17,6 @@ namespace QLHoKinhDoanhMVC.Controllers
         // Check session
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            HopDongKiot hopdong = new HopDongKiot();
-            hopdong.CheckHopDong();
             CheckCookie();
             var session = (UserLogin)Session[CommonConstants.USER_SESSION];
             if (session == null)
@@ -29,6 +27,24 @@ namespace QLHoKinhDoanhMVC.Controllers
             else
             {
                 UserID = session.UserID;
+                if (session.MaQuyen == 1)
+                {
+                    return;
+                }
+
+                string actionName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName + "Controller-"
+                    + filterContext.ActionDescriptor.ActionName;
+                QuanLyHoKinhDoanhDBContext db = new QuanLyHoKinhDoanhDBContext();
+                var listQuyen = from q in db.Quyens
+                                join c in db.ChucNangs
+                                on q.Ma equals c.Ma
+                                where q.MaQuyen == session.MaQuyen
+                                select c.Ten;
+                if (!listQuyen.Contains(actionName))
+                {
+                    filterContext.Result = new RedirectToRouteResult(new
+                        RouteValueDictionary(new { controller = "Home", action = "NotificationAuthorize" }));
+                }
             }
             base.OnActionExecuting(filterContext);
         }
@@ -53,7 +69,7 @@ namespace QLHoKinhDoanhMVC.Controllers
         }
 
         // Set alert để đưa ra thông báo
-        public void SetAlert(string message, string type)
+        protected void SetAlert(string message, string type)
         {
             TempData["AlertMessage"] = message;
             if (type == "success")

@@ -1,0 +1,37 @@
+﻿@model QLHoKinhDoanhMVC.Models.DanhMuc
+
+@{
+    ViewBag.Title = "Sửa danh mục" + @Model.MaDanhMuc;
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h1 class="page-header">@ViewBag.Title</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MaDanhMuc)
+
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="control-label col-xs-2">Tên danh mục</label>
+                <div class="col-xs-10">
+                    @Html.TextBoxFor(model => model.TenDanhMuc, new { @class = "form-control", type = "text", required = "required" })
+                    @Html.ValidationMessageFor(model => model.TenDanhMuc, null, new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <input type="submit" value="Lưu" class="btn btn-primary" />
+                </div>
+            </div>
+            <div class="col-xs-offset-2 col-xs-10">
+                @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-default" })
+            </div>
+        </div>
+}
+
+

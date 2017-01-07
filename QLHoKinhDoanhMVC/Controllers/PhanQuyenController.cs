@@ -17,48 +17,8 @@ namespace QLHoKinhDoanhMVC.Controllers
         // GET: /PhanQuyen/
         public ActionResult Index()
         {
-            var quyens = db.Quyens.Include(q => q.PhanQuyen);
-            return View(quyens.ToList());
-        }
-
-        // GET: /PhanQuyen/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Quyen quyen = db.Quyens.Find(id);
-            if (quyen == null)
-            {
-                return HttpNotFound();
-            }
-            return View(quyen);
-        }
-
-        // GET: /PhanQuyen/Create
-        public ActionResult Create()
-        {
-            ViewBag.MaQuyen = new SelectList(db.PhanQuyens, "MaQuyen", "LoaiQuyen");
-            return View();
-        }
-
-        // POST: /PhanQuyen/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,MaQuyen,Action,Mota")] Quyen quyen)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Quyens.Add(quyen);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.MaQuyen = new SelectList(db.PhanQuyens, "MaQuyen", "LoaiQuyen", quyen.MaQuyen);
-            return View(quyen);
+            var phanquyen = db.PhanQuyens.Where(m => m.MaQuyen != 1);
+            return View(phanquyen.ToList());
         }
 
         // GET: /PhanQuyen/Edit/5
@@ -68,56 +28,84 @@ namespace QLHoKinhDoanhMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Quyen quyen = db.Quyens.Find(id);
-            if (quyen == null)
+            PhanQuyen phanquyen = db.PhanQuyens.Find(id);
+            if (phanquyen == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaQuyen = new SelectList(db.PhanQuyens, "MaQuyen", "LoaiQuyen", quyen.MaQuyen);
-            return View(quyen);
+            var listController = db.DanhMucs.ToList();
+            List<SelectListItem> listControllers = new List<SelectListItem>();
+            foreach (var item in listController)
+            {
+                listControllers.Add(new SelectListItem() { Text = item.TenDanhMuc, Value = item.MaDanhMuc });
+            }
+            ViewBag.listController = listControllers;
+
+            var listQuyen = from q in db.Quyens
+                            join c in db.ChucNangs
+                            on q.Ma equals c.Ma
+                            where q.MaQuyen == id
+                            select new SelectListItem()
+                            {
+                                Value = c.Ma.ToString(),
+                                Text = c.Ten
+                            };
+            ViewBag.listQuyen = listQuyen;
+            return View(phanquyen);
+
         }
 
-        // POST: /PhanQuyen/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,MaQuyen,Action,Mota")] Quyen quyen)
+        // GET: PhanQuyen/GetQuyen
+        public JsonResult GetQuyen(string id, int maquyentemp)
         {
-            if (ModelState.IsValid)
+            var listQuyen = (from q in db.Quyens
+                             join c in db.ChucNangs
+                             on q.Ma equals c.Ma
+                             where q.MaQuyen == maquyentemp && c.MaDanhMuc == id
+                             select new QuyenAction
+                             {
+                                 QuyenName = c.Ten,
+                                 MoTa = c.MoTa,
+                                 QuyenID = c.Ma,
+                                 IsGranted = true
+                             }).ToList();
+            var listChucNang = from c in db.ChucNangs
+                               where c.MaDanhMuc == id
+                               select new QuyenAction
+                             {
+                                 QuyenName = c.Ten,
+                                 MoTa = c.MoTa,
+                                 QuyenID = c.Ma,
+                                 IsGranted = false
+                             };
+            var listChucNangID = listQuyen.Select(c => c.QuyenID);
+            foreach (var item in listChucNang)
             {
-                db.Entry(quyen).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (!listChucNangID.Contains(item.QuyenID))
+                {
+                    listQuyen.Add(item);
+                }
             }
-            ViewBag.MaQuyen = new SelectList(db.PhanQuyens, "MaQuyen", "LoaiQuyen", quyen.MaQuyen);
-            return View(quyen);
+            return Json(listQuyen.OrderBy(x => x.MoTa), JsonRequestBehavior.AllowGet);
         }
-
-        // GET: /PhanQuyen/Delete/5
-        public ActionResult Delete(int? id)
+        // POST: /PhanQuyen/Update/5
+        public string Update(int id, int maquyentemp)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Quyen quyen = db.Quyens.Find(id);
+            string msg = "";
+            var quyen = db.Quyens.Where(m => m.Ma == id && m.MaQuyen == maquyentemp).FirstOrDefault(); 
             if (quyen == null)
             {
-                return HttpNotFound();
+                Quyen quyens = new Quyen() { Ma = id, MaQuyen = maquyentemp };
+                db.Quyens.Add(quyens);
+                msg = "<div class = 'alert alert-success'>Cấp quyền thành công</div>";
             }
-            return View(quyen);
-        }
-
-        // POST: /PhanQuyen/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Quyen quyen = db.Quyens.Find(id);
-            db.Quyens.Remove(quyen);
+            else
+            {
+                db.Quyens.Remove(quyen);
+                msg = "<div class = 'alert alert-danger'>Hủy quyền thành công</div>";
+            }
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return msg;
         }
 
         protected override void Dispose(bool disposing)

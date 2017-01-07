@@ -15,19 +15,20 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
 
-        @Html.HiddenFor(model => model.MaKiot)
-        @Html.HiddenFor(model => model.Tang)
-        @Html.HiddenFor(mode => mode.SoTT)
-        @Html.HiddenFor(mode => mode.TrangThai)
+
+    @Html.HiddenFor(model => model.MaKiot)
+    @Html.HiddenFor(model => model.Tang)
+    @Html.HiddenFor(mode => mode.SoTT)
+    @Html.HiddenFor(mode => mode.TrangThai)
     <div class="col-lg-6">
         <div class="form-group">
-            <label class="control-label">Diện tích</label>
-            @Html.TextBoxFor(model => model.DienTich, new { @class = "form-control", type = "number" })
-            @Html.ValidationMessageFor(model => model.DienTich, null, new { @class = "text-danger" })
+                <label class="control-label col-xs-2">Diện tích</label>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(model => model.DienTich, new { @class = "form-control", type = "number", required = "required" })
+                @Html.ValidationMessageFor(model => model.DienTich, null, new { @class = "text-danger" })
+            </div>
         </div>
-
         <div class="form-group">
             <div class="col-xs-offset-2 col-xs-10">
                 <input type="submit" class="btn btn-primary" value="Lưu" />
@@ -39,6 +40,6 @@
                 @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-default", type = "button" })
             </div>
         </div>
-</div>
+    </div>
 }
 

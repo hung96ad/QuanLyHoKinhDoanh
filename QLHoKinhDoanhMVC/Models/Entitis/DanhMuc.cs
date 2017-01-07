@@ -1,4 +1,4 @@
-﻿namespace QLHoKinhDoanhMVC.Models
+namespace QLHoKinhDoanhMVC.Models
 {
     using System;
     using System.Collections.Generic;
@@ -6,21 +6,23 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Action")]
-    public partial class Action
+    [Table("DanhMuc")]
+    public partial class DanhMuc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Action()
+        public DanhMuc()
         {
-            Quyens = new HashSet<Quyen>();
+            ChucNangs = new HashSet<ChucNang>();
         }
 
         [Key]
-        [Column("Action")]
         [StringLength(50)]
-        public string Action1 { get; set; }
+        public string MaDanhMuc { get; set; }
+
+        [StringLength(100)]
+        public string TenDanhMuc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Quyen> Quyens { get; set; }
+        public virtual ICollection<ChucNang> ChucNangs { get; set; }
     }
 }

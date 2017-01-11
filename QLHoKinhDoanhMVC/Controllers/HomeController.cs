@@ -74,8 +74,9 @@ namespace QLHoKinhDoanhMVC.Controllers
             }
             base.OnActionExecuting(filterContext);
         }
+        
 
-        // 
+        // GET : Home/NotificationAuthorize đưa ra thông báo nếu không có quyền
         public ActionResult NotificationAuthorize()
         {
             return View();

@@ -10,15 +10,39 @@
     <link href="@Url.Content("~/Style/dist/css/sb-admin-2.css")" rel="stylesheet">
     <link href="@Url.Content("~/Style/vendor/font-awesome/css/font-awesome.min.css")" rel="stylesheet" type="text/css">
     <script src="~/Style/ckeditor/ckeditor.js"></script>
+    <link href="~/Style/Slide.css" rel="stylesheet" />
 </head>
-<body>
-    <div id="wrapper">
-        <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">Trang chủ</a>
-            </div>
-            @Html.Partial("~/Views/Shared/_Header.cshtml")
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 
+    <div class="container-fluid" style="background-color:#fff;color:#fff;">
+        <a href="/"><img src="~/images/logo.png" /> </a>
+    </div>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="1">
+            <div class="container-fluid">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/#">Trang chủ</a>
+                    </div>
+                    <div class="nav navbar-nav">
+                        <a href="#slide" class="navbar-brand">SlideShow</a>
+                    </div>
+                    <div class="nav navbar-nav">
+                        <a href="#gioithieu" class="navbar-brand">Giới thiệu</a>
+                    </div>
+                    <div class="nav navbar-nav">
+                        <a href="#tinmoi" class="navbar-brand">Tin mới</a>
+                    </div>
+                    <div class="nav navbar-nav">
+                        <a href="#lienhe" class="navbar-brand">Liên hệ</a>
+                    </div>
+                    @Html.Partial("~/Views/Shared/_Header.cshtml")
+                </div>
+            </div>
 
             @Html.Action("NewsPartial", "Home")
         </nav>

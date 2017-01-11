@@ -16,7 +16,7 @@
         [StringLength(500)]
         public string TieuDe { get; set; }
 
-        [StringLength(500)]
+        [StringLength(4000)]
         public string MoTa { get; set; }
 
         [Column(TypeName = "ntext")]

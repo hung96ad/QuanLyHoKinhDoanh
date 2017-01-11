@@ -11,9 +11,13 @@
     <link href="@Url.Content("~/Style/vendor/font-awesome/css/font-awesome.min.css")" rel="stylesheet" type="text/css">
     <script src="~/Style/ckeditor/ckeditor.js"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <div class="container-fluid" style="background-color:#fff;color:#fff;">
+        <a href="/"><img src="~/images/logo.png" /> </a>
+    </div>
     <div id="wrapper">
-        <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0">
+        <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">Trang chủ</a>
             </div>
@@ -28,6 +32,6 @@
         </div>
     </div>
 
-        @Html.Partial("~/Views/Shared/_Footer.cshtml")
+    @Html.Partial("~/Views/Shared/_Footer.cshtml")
 </body>
 </html>

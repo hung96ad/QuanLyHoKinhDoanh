@@ -1,37 +1,120 @@
 ﻿@model QLHoKinhDoanhMVC.Models.ThongBao
 
 @{
-    ViewBag.Title = @Model.TieuDe;
+    ViewBag.Title = "Trang chủ chợ Bách Khoa";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
 }
 
 <div class="col-lg-12">
-    <h1 class="page-header">@Model.TieuDe</h1>
+    <div class="container-fluid" id="slide">
+        <div class="slideshow-container">
 
-    <blockquote>
-        <small>Ngày đăng: @Model.NgayDang</small>
-    </blockquote>
+            <div class="mySlides fade">
+                <a href="~/Home/Details/3">
+                    <img src="~/images/slide/nhansu.png">
+                </a>
+            </div>
+
+            <div class="mySlides fade">
+                <a href="~/Home/Details/1">
+                    <img src="~/images/slide/dambaovesinh.png">
+                </a>
+            </div>
+
+            <div class="mySlides fade">
+                <a href="~/Home/Details/2">
+                    <img src="~/images/slide/chucmungnammoi.png">
+                </a>
+            </div>
+
+        </div>
+        <br>
+
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
 </div>
 
+<script>
+    var slideIndex = 0;
+    showSlides();
 
-
-<div class="col-lg-12">
-    <div class="panel panel-default">
-        @if (Model.MoTa != null)
-        {
-            <div class="panel-heading">
-                <h3>Mô tả:  @Model.MoTa </h3>
-            </div>
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
         }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000);
+    }
+</script>
+<div class="col-lg-12">
+    <div class="container-fluid" id="gioithieu">
+        <h2 class="page-header">Giới thiệu về chợ Bách Khoa</h2>
+        <div class="panel panel-info">
+            <h3 class="panel-heading">Vị trí chợ</h3>
+            <div class="panel-body">
+                <img src="~/images/map.png" />
+            </div>
+            <div class="panel-footer">
+                <p>
+                    <b>
+                        Dự án chợ Bách Khoa nằm giữa khu vực có mật độ dân cư cao; nơi tập trung của Trung tâm hành chính và những cơ quan, trụ sở của các tổ chức, đơn vị doanh nghiệp nổi tiếng như:
+                        Trường ĐH Bách Khoa Hà Nội, Trường ĐH Kinh Tế Quốc Dân, Trường ĐH Xây Dựng, …; kèm theo đó là số lượng rất lớn của những người quản lý và các nhân viên điều hành có trình độ và thu nhập cao.
+                    </b>
+                </p>
+                <p>
+                    Công trình chợ Bách Khoa là mô hình mới của thành phố Hà Nội nhằm đón đầu cho xu hướng hội nhập kinh tế sâu rộng trong khu vực và thế giới hiện nay.
+                </p>
+                <p>
+                    Công trình chợ Bách Khoa Hàn là khu phức hợp gồm 9 tầng nổi và 01 tầng hầm. Khu chợ gồm 3 tầng, cung ứng khoảng 2.000m2   diện tích mặt bằng kinh doanh và 01 tầng dịch vụ. Công trình phức hợp này đảm bảo sự đa dạng về công năng sử dụng ngay giữa khu vực sầm uất, khả năng gia tăng lợi ích lâu dài, bền vững…
 
-        <div class="panel-body">
-            <p>
-                @Html.Raw(Model.NoiDung)
-            </p>
+                </p>
+                <p>
+                    Hiện nay khu chợ Bách Khoa đã được hoàn thành, sẵn sàng cung ứng mặt bằng kinh doanh và dịch vụ cho Quý khách.
+                </p>
+                <p>
+                    Nay một lần nữa, chúng tôi trân trọng giới thiệu với Quý doanh nghiệp và các nhà đầu tư về Dự án chợ Bách Khoa - một dự án đem đến sự thành công bền vững và chia sẻ lợi ích cùng Quý vị.
+
+                </p>
+            </div>
         </div>
+    </div>
+</div>
+<div class="col-lg-12">
+    <div class="container-fluid" id="tinmoi">
+        <h1 class="page-header">@Model.TieuDe</h1>
+        <blockquote>
+            <small>Ngày đăng: @Model.NgayDang</small>
+        </blockquote>
+        <div class="panel panel-default">
+            @if (Model.MoTa != null)
+            {
+                <div class="panel-heading">
+                    <h3>Mô tả:  @Model.MoTa </h3>
+                </div>
+            }
 
-        <div class="panel-footer">
-            Người đăng: @Model.UserID
+            <div class="panel-body">
+                <p>
+                    @Html.Raw(Model.NoiDung)
+                </p>
+            </div>
+
+            <div class="panel-footer">
+                Người đăng: @Model.UserID
+            </div>
         </div>
     </div>
 </div>

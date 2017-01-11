@@ -209,8 +209,8 @@
     <Compile Include="Models\Entitis\Kiot.cs" />
     <Compile Include="Models\Entitis\NangCapCho.cs" />
     <Compile Include="Models\Entitis\Quyen.cs" />
-    <Compile Include="Models\IHopDongKiot.cs" />
-    <Compile Include="Models\IPhanQuyen.cs" />
+    <Compile Include="Models\Interface\IHopDongKiot.cs" />
+    <Compile Include="Models\Interface\IPhanQuyen.cs" />
     <Compile Include="Models\KiotChange.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Entitis\DanhMuc.cs" />
@@ -224,7 +224,7 @@
     <Compile Include="Models\Entitis\Thue.cs" />
     <Compile Include="Models\Entitis\TienDienNuoc.cs" />
     <Compile Include="Models\Entitis\TienLuongNV.cs" />
-    <Compile Include="Models\IAccount.cs" />
+    <Compile Include="Models\Interface\IAccount.cs" />
     <Compile Include="Models\QuyenAction.cs" />
     <Compile Include="Models\ReflectionController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,6 +238,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\map.png" />
+    <Content Include="images\slide\chucmungnammoi.png" />
+    <Content Include="images\slide\dambaovesinh.png" />
+    <Content Include="images\slide\nhansu.png" />
     <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Style\Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Style\Scripts\jquery.unobtrusive-ajax.min.js" />
@@ -672,6 +677,7 @@
     <Content Include="Style\js\Scripts\knockout-2.2.0.js" />
     <Content Include="Style\js\Scripts\modernizr-2.6.2.js" />
     <None Include="Style\js\Scripts\_references.js" />
+    <Content Include="Style\Slide.css" />
     <Content Include="Style\vendor\bootstrap-social\bootstrap-social.css" />
     <Content Include="Style\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="Style\vendor\bootstrap\css\bootstrap.min.css" />
@@ -850,6 +856,7 @@
     <Content Include="Views\DanhMuc\Edit.cshtml" />
     <Content Include="Views\DanhMuc\Index.cshtml" />
     <Content Include="Views\Home\NotificationAuthorize.cshtml" />
+    <Content Include="Views\Kiot\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
